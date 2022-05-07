@@ -28,12 +28,12 @@ import MDTypography from "components/MDTypography";
 
 // Material Dashboard 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
-
+import axios from 'axios';
 import backgroundImage from "assets/images/bg-profile.jpeg";
 
-function Header({ children }) {
+function Header(props) {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
-
+  
   useEffect(() => {
     // A function that sets the orientation state of the tabs.
     function handleTabsOrientation() {
@@ -86,7 +86,7 @@ function Header({ children }) {
           <Grid item>
             <MDBox height="100%" mt={0.5} lineHeight={1}>
               <MDTypography variant="h5" fontWeight="medium">
-                Shivang Agarwal
+                {props.username}
               </MDTypography>
               <MDTypography variant="button" color="text" fontWeight="regular">
                 Student in IIIT Bangalore
@@ -94,7 +94,7 @@ function Header({ children }) {
             </MDBox>
           </Grid>
         </Grid>
-        {children}
+        {props.children}
       </Card>
     </MDBox>
   );

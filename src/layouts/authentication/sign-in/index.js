@@ -83,7 +83,7 @@ function Basic() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput value={username} onChange={(e)=>{setUsername(e.target.value)}} type="email" label="Email" fullWidth />
+              <MDInput value={username} onChange={(e)=>{setUsername(e.target.value)}} type="text" label="Username" fullWidth />
             </MDBox>
             <MDBox mb={2}>
               <MDInput type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} label="Password" fullWidth />

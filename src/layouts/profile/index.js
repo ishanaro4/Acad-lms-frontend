@@ -21,7 +21,9 @@ import Divider from "@mui/material/Divider";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
@@ -34,24 +36,68 @@ import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
 
 // Overview page components
 import Header from "layouts/profile/components/Header";
+import MDInput from "components/MDInput";
+import MDButton from "components/MDButton";
 
 function Overview() {
+  const [username,setUsername] = useState('')
+  const [mobile,setMobile] = useState('')
+  const [description,setDescription] = useState('')
+  const [password, setPassword] = useState('');
+  const [id,setId] = useState('')
+  useEffect(()=>{
+    axios({
+      headers:{'Authorization':window.sessionStorage.getItem('token')},
+      method:'get',
+      url:'http://localhost:8080/users/profile',
+    }).then(res=>{
+      const data = res.data;
+
+      setUsername(data.username);
+      setMobile(data.mobile);
+      setDescription(data.description);
+      setPassword(data.password);
+      setId(data.id);
+    })
+  },[])
+
+  const editDetails = ()=>{
+      window.alert("SENT")
+      axios({
+        headers:{'Authorization':window.sessionStorage.getItem('token')},
+        method:'put',
+        url:'http://localhost:8080/users/profile',
+        data:{
+          username,
+          password,
+          id,
+          mobile,
+          description
+        }
+      }).then(res=>{
+      })
+  }
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox mb={2} />
-      <Header>
+      <Header username={username}>
         <MDBox mt={5} mb={3}>
           <Grid container spacing={1}>
             <Grid item xs={20} md={20} xl={9} sx={{ display: "flex" }}>
               <Divider orientation="vertical" sx={{ ml: -2, mr: 1 }} />
               <ProfileInfoCard
                 title="profile information"
-                description="Hi, I’m Shivang, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
+                description={
+                  <>
+                    <MDInput multiline label="profile info" value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
+                    <MDButton onClick={editDetails}>Update</MDButton>
+                  </>
+                }
                 info={{
-                  fullName: "Shivang Agarwal",
-                  mobile: "7489726295",
-                  email: "agrawalshivang1212@mail.com",
+                  userName: username,
+                  mobile: mobile,
                   location: "Bengaluru",
                 }}
                 social={[
@@ -71,7 +117,7 @@ function Overview() {
                     color: "instagram",
                   },
                 ]}
-                action={{ route: "", tooltip: "Edit Profile" }}
+                action={{ route: "", tooltip: "Update Profile" }}
                 shadow={false}
               />
               <Divider orientation="vertical" sx={{ mx: 0 }} />
