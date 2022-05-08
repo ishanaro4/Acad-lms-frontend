@@ -1,19 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
@@ -25,18 +9,30 @@ import MDTypography from "components/MDTypography";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import DataTable from "examples/Tables/DataTable";
 // Data
 import authorsTableData from "layouts/tables/data/authorsTableData";
 import projectsTableData from "layouts/tables/data/projectsTableData";
 import Placement from "./Placement";
 import NonTech from "./NonTech";
 import Extra from "./Extra";
-
+import axios from "axios";
+import './Placement.css';
+import { useState } from "react";
+import Add from "./Add";
+import MDInputRoot from "components/MDInput/MDInputRoot";
 function Tables() {
   const { columns, rows } = authorsTableData();
   const { columns: pColumns, rows: pRows } = projectsTableData();
-
+  const [links, setLinks] = useState([]);
+  const onSelect=(subject)=>{
+      axios({
+        headers:{'Authorization':window.sessionStorage.getItem('token')},
+        method:'get',
+        url:`http://localhost:8080/users/placementMaterial/${subject}`,
+      }).then(res=>{
+          setLinks(res.data.map(data=>data.link))
+      })
+  }
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -58,9 +54,40 @@ function Tables() {
                  Placement Material
                 </MDTypography>
               </MDBox>
-                 <Placement/>
-                 <NonTech/>
-                 <Extra/>
+                 <Placement onSelect={onSelect}/>
+                 <NonTech onSelect={onSelect}/>
+                 <Extra onSelect={onSelect}/>
+                {
+                  links.map((link,index)=>
+                    <>
+                    <a href={link}  className="deco" target="_blank">Link {index+1}</a><br/>
+                    </>
+
+                  )
+                }
+            </Card>
+          </Grid>
+        </Grid>
+      </MDBox>
+      <MDBox pt={6} pb={3}>
+        <Grid container spacing={6}>
+          <Grid item xs={12}>
+            <Card>
+              <MDBox
+                mx={2}
+                mt={-3}
+                py={3}
+                px={2}
+                variant="gradient"
+                bgColor="info"
+                borderRadius="lg"
+                coloredShadow="info"
+              >
+                <MDTypography variant="h6" color="white">
+                Add the Material
+                </MDTypography>
+              </MDBox>
+                 <Add onSelect={onSelect}/>
             </Card>
           </Grid>
         </Grid>

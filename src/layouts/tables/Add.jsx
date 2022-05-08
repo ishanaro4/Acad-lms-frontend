@@ -1,12 +1,20 @@
 import React from 'react';
-import './Placement.css';
-function Placement(props) {
+import './Placement2.css';
+import MDInput from 'components/MDInput';
+import {useState} from 'react';
+
+function Add(props) {
+    const saveData = (tag)=>{
+
+    }
+    const [link, setLink] = useState('');
     return(
         <div className="dropdown">
-  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
     data-mdb-toggle="dropdown" aria-expanded="false">
-    TECHNICAL
+    Adding Placement documents
   </button>
+  <MDInput label="Document link" value={link} onChange={(e)=>setLink(e.target.value)}/>
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <li>
       <a className="dropdown-item" href="#">
@@ -14,10 +22,10 @@ function Placement(props) {
       </a>
       <ul className="dropdown-menu dropdown-submenu">
         <li>
-          <a className="dropdown-item" href="#">Dynamic Programing</a>
+          <a className="dropdown-item" onClick={()=>{saveData('DP')}} href="#">Dynamic Programing</a>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Stack and Queue</a>
+          <a className="dropdown-item" onClick={()=>{saveData('SQ')}} href="#">Stack and Queue</a>
         </li>
         <li>
           <a className="dropdown-item" href="#">Algorithm &raquo; </a>
@@ -118,4 +126,4 @@ function Placement(props) {
     );
 }
 
-export default Placement;
+export default Add;
