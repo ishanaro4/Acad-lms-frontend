@@ -94,7 +94,7 @@ function Add(props) {
           <a className="dropdown-item" href="#">System Design</a>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Puzzle</a>
+          <a className="dropdown-item" href="#">Puzzles</a>
         </li>
         <li>
           <a className="dropdown-item" href="#">Coding Platforms &raquo; </a>
