@@ -28,17 +28,21 @@ function Basic() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
+
+  //asybcs().then(function(par){})
+
+
   const signIn=()=>{
     console.log('Called signin')
-    axios({
+    axios({                            // axios is asyn
       method:'post',
       url:'http://localhost:8080/login',
       data:{
         'username':username,
         'password':password
       }
-    }).then(res=>{
-      window.sessionStorage.setItem('token',res.headers.token);
+    }).then(res=>{                         // .then is used for asyn method 
+      window.sessionStorage.setItem('token',res.headers.token); // res is the return of signIn
       window.location.href='http://localhost:3000';
     })
   }

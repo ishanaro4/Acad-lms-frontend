@@ -33,6 +33,8 @@ function Tables() {
           setLinks(res.data.map(data=>data.link))
       })
   }
+  
+  
   return (
     <DashboardLayout>
       <DashboardNavbar />

@@ -45,6 +45,10 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
 
+  if(!window.sessionStorage.getItem('token')){
+    window.location.href = "http://localhost:3000/authentication/sign-in"
+  }
+  
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
