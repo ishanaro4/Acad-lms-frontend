@@ -9,12 +9,14 @@ function Add(props) {
     }
     const [link, setLink] = useState('');
     return(
-        <div className="dropdown">
-  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+        <div className="dropdown center-aligned-items">
+  <MDInput label="Document link" value={link} onChange={(e)=>setLink(e.target.value)}/>
+  <br/>
+  <button className="btn btn-primary dropdown-toggle" type="button"
     data-mdb-toggle="dropdown" aria-expanded="false">
     Adding Placement documents
   </button>
-  <MDInput label="Document link" value={link} onChange={(e)=>setLink(e.target.value)}/>
+  
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <li>
       <a className="dropdown-item" href="#">

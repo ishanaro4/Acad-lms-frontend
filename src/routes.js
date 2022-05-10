@@ -1,3 +1,4 @@
+
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 // import App from "./experience/e"
@@ -66,6 +67,7 @@ const routes = [
     icon: <Icon fontSize="small">login</Icon>,
     route: "/authentication/sign-in",
     component: <SignIn />,
+    hidden: true
   },
   {
     type: "collapse",
@@ -74,6 +76,7 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
+    hidden: true
   },
 ];
 

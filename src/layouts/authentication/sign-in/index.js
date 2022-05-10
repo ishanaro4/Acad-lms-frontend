@@ -31,7 +31,9 @@ function Basic() {
 
   //asybcs().then(function(par){})
 
-
+  if(window.sessionStorage.getItem('token')){
+    window.location.href = "http://localhost:3000/dashboard"
+  }
   const signIn=()=>{
     console.log('Called signin')
     axios({                            // axios is asyn
