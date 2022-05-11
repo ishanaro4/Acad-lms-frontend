@@ -9,12 +9,14 @@ function Add(props) {
     }
     const [link, setLink] = useState('');
     return(
-        <div className="dropdown">
-  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+        <div className="dropdown center-aligned-items">
+  <MDInput label="Document link" value={link} onChange={(e)=>setLink(e.target.value)}/>
+  <br/>
+  <button className="btn btn-primary dropdown-toggle" type="button"
     data-mdb-toggle="dropdown" aria-expanded="false">
     Adding Placement documents
   </button>
-  <MDInput label="Document link" value={link} onChange={(e)=>setLink(e.target.value)}/>
+  
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <li>
       <a className="dropdown-item" href="#">
@@ -58,7 +60,7 @@ function Add(props) {
       </a>
       <ul className="dropdown-menu dropdown-submenu">
         <li>
-          <a className="dropdown-item" href="#">DBMS</a>
+          <a className="dropdown-item"  onClick={()=>{props.onSelect('DBMS')}} href="#">DBMS</a>
         </li>
         <li>
           <a className="dropdown-item" onClick={()=>{props.onSelect('OS')}} href="#">Operating System</a>
@@ -78,10 +80,10 @@ function Add(props) {
           </ul>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Algorithm</a>
+          <a className="dropdown-item"  onClick={()=>{props.onSelect('Algo')}} href="#">Algorithm</a>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Data Structure</a>
+          <a className="dropdown-item"  onClick={()=>{props.onSelect('DS')}} href="#">Data Structure</a>
         </li>
       </ul>
     </li>

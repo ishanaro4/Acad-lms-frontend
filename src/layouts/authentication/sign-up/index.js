@@ -42,6 +42,11 @@ function Cover() {
   const[password,setPassword] = useState('');
   const[mobile,setMobile] = useState('');
 
+  
+  if(window.sessionStorage.getItem('token')){
+    window.location.href = "http://localhost:3000/dashboard"
+  }
+  
   const signUp=()=>{
     console.log('CAlled axios')
     axios({

@@ -30,7 +30,7 @@ function Notifications() {
   const alertContent = () => (
     <MDTypography variant="body2" color="white">
       Todays Leetcode chalange left
-      <MDTypography component="a" href="#" variant="body2" fontWeight="medium" color="white">
+      <MDTypography component="a" href="https://leetcode.com/problems/count-sorted-vowel-strings/" target="_blank" variant="body2" fontWeight="medium" color="white">
         an example link
       </MDTypography>
     </MDTypography>
@@ -38,7 +38,7 @@ function Notifications() {
   const alertContent2 = () => (
     <MDTypography variant="body2" color="white">
       Weekly Challange 26 InterviewBit
-      <MDTypography component="a" href="#" variant="body2" fontWeight="medium" color="white">
+      <MDTypography component="a" href="https://www.interviewbit.com/contest/codedrift-april-2-0" target="_blank" variant="body2" fontWeight="medium" color="white">
         Click to register
       </MDTypography>
     </MDTypography>
@@ -54,7 +54,7 @@ function Notifications() {
   const alertContent4 = () => (
     <MDTypography variant="body2" color="white">
       New Amazon Interview Experience
-      <MDTypography component="a" href="#" variant="body2" fontWeight="medium" color="white">
+      <MDTypography component="a" href="https://leetcode.com/discuss/interview-question/2024323/Amazon-or-OA-or-Sum-of-subarray-or-LinkedList" target="_blank" variant="body2" fontWeight="medium" color="white">
         See the Experience
       </MDTypography>
     </MDTypography>

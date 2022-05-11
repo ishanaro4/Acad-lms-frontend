@@ -45,6 +45,10 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
 
+  if(!window.sessionStorage.getItem('token')){
+    window.location.href = "http://localhost:3000/authentication/sign-in"
+  }
+  
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
@@ -123,11 +127,9 @@ function DashboardNavbar({ absolute, light, isMini }) {
               <MDInput label="Search here" />
             </MDBox>
             <MDBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
                 <IconButton sx={navbarIconButton} size="small" disableRipple>
                   <Icon sx={iconsStyle}>account_circle</Icon>
                 </IconButton>
-              </Link>
               <IconButton
                 size="small"
                 disableRipple
