@@ -24,7 +24,10 @@ function Tables() {
   const { columns, rows } = authorsTableData();
   const { columns: pColumns, rows: pRows } = projectsTableData();
   const [links, setLinks] = useState([]);
+  const [selectedSubject, setSelectedSubject] =  useState('')
   const onSelect=(subject)=>{
+      setSelectedSubject(subject);
+
       axios({
         headers:{'Authorization':window.sessionStorage.getItem('token')},
         method:'get',
@@ -62,7 +65,7 @@ function Tables() {
                 {
                   links.map((link,index)=>
                     <>
-                    <a href={link}  className="deco" target="_blank">Link {index+1}</a><br/>
+                    <a href={link}  className="deco" target="_blank">{selectedSubject} Link {index+1}</a><br/>
                     </>
 
                   )

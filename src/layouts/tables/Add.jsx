@@ -60,7 +60,7 @@ function Add(props) {
       </a>
       <ul className="dropdown-menu dropdown-submenu">
         <li>
-          <a className="dropdown-item" href="#">DBMS</a>
+          <a className="dropdown-item"  onClick={()=>{props.onSelect('DBMS')}} href="#">DBMS</a>
         </li>
         <li>
           <a className="dropdown-item" onClick={()=>{props.onSelect('OS')}} href="#">Operating System</a>
@@ -80,10 +80,10 @@ function Add(props) {
           </ul>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Algorithm</a>
+          <a className="dropdown-item"  onClick={()=>{props.onSelect('Algo')}} href="#">Algorithm</a>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Data Structure</a>
+          <a className="dropdown-item"  onClick={()=>{props.onSelect('DS')}} href="#">Data Structure</a>
         </li>
       </ul>
     </li>
