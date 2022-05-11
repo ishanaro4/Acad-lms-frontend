@@ -60,21 +60,21 @@ function Placement(props) {
           <a className="dropdown-item" href="#">Langauge&raquo; </a>
           <ul className="dropdown-menu dropdown-submenu">
             <li>
-              <a className="dropdown-item" href="#">Java</a>
+              <a className="dropdown-item" onClick={()=>{props.onSelect('JAVA')}} href="#">Java</a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">C++</a>
+              <a className="dropdown-item" onClick={()=>{props.onSelect('C++')}} href="#">C++</a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">Python</a>
+              <a className="dropdown-item" onClick={()=>{props.onSelect('PYTHON')}} href="#">Python</a>
             </li>
           </ul>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Algorithm</a>
+          <a className="dropdown-item" onClick={()=>{props.onSelect('ALGO')}} href="#">Algorithm</a>
         </li>
         <li>
-          <a className="dropdown-item" href="#">Data Structure</a>
+          <a className="dropdown-item" onClick={()=>{props.onSelect('DS')}} href="#">Data Structure</a>
         </li>
       </ul>
     </li>

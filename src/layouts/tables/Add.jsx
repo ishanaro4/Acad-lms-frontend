@@ -69,7 +69,7 @@ function Add(props) {
           <a className="dropdown-item" href="#">Langauge&raquo; </a>
           <ul className="dropdown-menu dropdown-submenu">
             <li>
-              <a className="dropdown-item" href="#">Java</a>
+              <a className="dropdown-item"  href="#">Java</a>
             </li>
             <li>
               <a className="dropdown-item" href="#">C++</a>
